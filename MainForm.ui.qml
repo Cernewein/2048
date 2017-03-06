@@ -268,4 +268,90 @@ Item {
         }
     }
 
+    Text {
+        id: text1
+        x: 82
+        y: 31
+        width: 119
+        height: 57
+        color: "#808080"
+        text: qsTr("2048")
+        styleColor: "#00000000"
+        elide: Text.ElideMiddle
+        font.bold: true
+        font.family: "Tahoma"
+        wrapMode: Text.NoWrap
+        fontSizeMode: Text.Fit
+        font.pixelSize: 29
+    }
+
+    Rectangle {
+        id: best
+        x: 383
+        y: 31
+        width: 89
+        height: 57
+        color: "#c3bcbc"
+        radius: 10
+
+        Text {
+            id: text4
+            width: 89
+            height: 27
+            text: qsTr("BEST")
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            anchors.left: parent.left
+            anchors.leftMargin: 0
+            anchors.top: parent.top
+            anchors.topMargin: 0
+            font.pixelSize: 12
+        }
+    }
+
+    Rectangle {
+        id: score
+        x: 288
+        y: 31
+        width: 89
+        height: 57
+        color: "#c3bcbc"
+        radius: 10
+
+        Text {
+            id: text3
+            width: 89
+            height: 27
+            text: qsTr("SCORE")
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            font.family: "Tahoma"
+            anchors.left: parent.left
+            anchors.leftMargin: 0
+            anchors.top: parent.top
+            anchors.topMargin: 0
+            font.pixelSize: 12
+        }
+    }
+
+    Rectangle {
+        id: newgame
+        x: 383
+        y: 106
+        width: 89
+        height: 33
+        color: "#505050"
+
+        Text {
+            id: text2
+            color: "#ffffff"
+            text: qsTr("New Game")
+            font.family: "Tahoma"
+            fontSizeMode: Text.VerticalFit
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            anchors.fill: parent
+            font.pixelSize: 12
+        }
+    }
 }
