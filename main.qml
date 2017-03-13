@@ -4,37 +4,54 @@ import QtQuick.Dialogs 1.2
 
 ApplicationWindow {
     visible: true
-    width: 640
-    height: 480
-    title: qsTr("Hello World")
+    width: 480
+    height: 640
+    title: qsTr("2048")
 
-    menuBar: MenuBar {
-        Menu {
-            title: qsTr("File")
-            MenuItem {
-                text: qsTr("&Open")
-                onTriggered: console.log("Open action triggered");
-            }
-            MenuItem {
-                text: qsTr("Exit")
-                onTriggered: Qt.quit();
-            }
-        }
-    }
 
     MainForm {
         anchors.fill: parent
-        button1.onClicked: messageDialog.show(qsTr("Button 1 pressed"))
-        button2.onClicked: messageDialog.show(qsTr("Button 2 pressed"))
+        id:page
+        Keys.onPressed: {
+          switch (event.key) {
+            case Qt.Key_Right:
+              stateGroup.state='State0_3'
+              break;
+            case Qt.Key_Left:
+              stateGroup.state='State0_0'
+              break;
+          }
+        }
     }
 
-    MessageDialog {
-        id: messageDialog
-        title: qsTr("May I have your attention, please?")
+    StateGroup{
+        id: stateGroup
+        states:[
+             State{
+                name: 'State0_0'
+                PropertyChanges {
+                    target: page.fonddejeu.tuile1
+                    x: page.fonddejeu.rect0_0.x
+                    y: page.fonddejeu.rect0_0.y
+                }
+            },
+            State{
+               name: 'State0_3'
+               PropertyChanges {
+                   target: page.fonddejeu.tuile1
+                   x: page.fonddejeu.rect0_3.x
+                   y: page.fonddejeu.rect0_3.y
+               }
+           }
+    ]
+        transitions:
+            Transition {
+                 NumberAnimation {
+                     properties: "x,y";
+                     easing.type: Easing.OutQuad
+                     duration: 200
+                 }
+            }
 
-        function show(caption) {
-            messageDialog.text = caption;
-            messageDialog.open();
-        }
     }
 }
