@@ -468,9 +468,11 @@ Item {
 
     Text {
         id: text1
+
         x: 15
         y: 31
         width: 120
+
         height: 57
         color: "#808080"
         text: qsTr("2048")
@@ -481,6 +483,7 @@ Item {
         wrapMode: Text.NoWrap
         fontSizeMode: Text.Fit
         font.pixelSize: 47
+
     }
 
     Rectangle {
