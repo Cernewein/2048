@@ -1,19 +1,19 @@
 #ifndef DAMIERDYN_H
 #define DAMIERDYN_H
-
+#include <QObject>
 #include <iostream>
 using namespace std;
 
-class DamierDyn
+class DamierDyn : public QObject
 {
+    Q_OBJECT
 public:
-    DamierDyn(int vd=0);
-    DamierDyn(const DamierDyn &D);
+    explicit DamierDyn(int vd=0,QObject *parent = 0);
     ~DamierDyn();
 
-    void Print();
-    void Init(int value);
-    void Set(int x, int y, int value);
+    Q_INVOKABLE void Print();
+    Q_INVOKABLE void Init(int value);
+    Q_INVOKABLE void Set(int x, int y, int value);
 
 private:
     int L;
