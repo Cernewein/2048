@@ -3,9 +3,27 @@ import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.2
 
 Item {
-    id: item1
+    id: page
     width: 480
     height: 640
+    property alias rect1_2: rect1_2
+    property alias rect3_3: rect3_3
+    property alias rect2_3: rect2_3
+    property alias rect2_2: rect2_2
+    property alias rect3_2: rect3_2
+    property alias rect3_1: rect3_1
+    property alias rect2_1: rect2_1
+    property alias rect1_1: rect1_1
+    property alias rect0_1: rect0_1
+    property alias rect0_0: rect0_0
+    property alias rect1_0: rect1_0
+    property alias rect2_0: rect2_0
+    property alias rect3_0: rect3_0
+    property alias fonddejeu: fonddejeu
+    property alias fond: fond
+    property alias rect0_2: rect0_2
+    property alias rect1_3: rect1_3
+    property alias rect0_3: rect0_3
 
     Rectangle {
         id: fond
@@ -27,8 +45,12 @@ Item {
         anchors.bottomMargin: 20
         anchors.horizontalCenter: parent.horizontalCenter
 
+ /* Les 16 rectangles suivants correspondent aux petits rectangles gris du jeu,
+    ils sont nommés rectx_y ou x est la ligne (de 0 à 3) et y la colonne (de 0 à 3)
+    l'origine est prise au niveau du coin supérieur gauche
+ */
         Rectangle {
-            id: rect1
+            id: rect3_0
             x: 10
             y: 320
             width: 100
@@ -40,10 +62,21 @@ Item {
             anchors.left: parent.left
             anchors.leftMargin: 10
             smooth: true
+
+            Text {
+                id: text3_0
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                font.bold: true
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
-            id: rect2
+            id: rect2_0
             x: 10
             y: 210
             width: 100
@@ -55,10 +88,21 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 120
+
+            Text {
+                id: text2_0
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
-            id: rect3
+            id: rect1_0
             x: 10
             y: 98
             width: 100
@@ -70,10 +114,21 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 230
+
+            Text {
+                id: text1_0
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
-            id: rect4
+            id: rect0_0
             x: -10
             y: 120
             width: 100
@@ -85,10 +140,21 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 340
+
+            Text {
+                id: text0_0
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
-            id: rect5
+            id: rect0_1
             x: -7
             y: 122
             width: 100
@@ -100,10 +166,21 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 340
+
+            Text {
+                id: text0_1
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
-            id: rect6
+            id: rect1_1
             x: -9
             y: 120
             width: 100
@@ -115,10 +192,21 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 230
+
+            Text {
+                id: text1_1
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
-            id: rect7
+            id: rect2_1
             x: -3
             y: 230
             width: 100
@@ -130,10 +218,21 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 120
+
+            Text {
+                id: text2_1
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
-            id: rect8
+            id: rect3_1
             x: -6
             y: 340
             width: 100
@@ -145,10 +244,21 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 10
+
+            Text {
+                id: text3_1
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
-            id: rect9
+            id: rect3_2
             x: -2
             y: 340
             width: 100
@@ -160,10 +270,21 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 10
+
+            Text {
+                id: text3_2
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
-            id: rect10
+            id: rect2_2
             x: -11
             y: 230
             width: 100
@@ -175,10 +296,21 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 120
+
+            Text {
+                id: text2_2
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
-            id: rect11
+            id: rect2_3
             x: -4
             y: 230
             width: 100
@@ -190,10 +322,21 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 120
+
+            Text {
+                id: text2_3
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
-            id: rect12
+            id: rect3_3
             x: -3
             y: 340
             width: 100
@@ -205,10 +348,21 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 10
+
+            Text {
+                id: text3_3
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
-            id: rect13
+            id: rect1_2
             x: 0
             y: 120
             width: 100
@@ -220,10 +374,21 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 230
+
+            Text {
+                id: text1_2
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
-            id: rect14
+            id: rect0_2
             x: 8
             y: 10
             width: 100
@@ -235,10 +400,21 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 340
+
+            Text {
+                id: text0_2
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
-            id: rect15
+            id: rect1_3
             x: 11
             y: 120
             width: 100
@@ -250,10 +426,21 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 230
+
+            Text {
+                id: text1_3
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
-            id: rect16
+            id: rect0_3
             x: 18
             y: 10
             width: 100
@@ -265,14 +452,27 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 340
+
+            Text {
+                id: text0_3
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
     }
 
     Text {
         id: text1
-        x: 82
+
+        x: 15
         y: 31
-        width: 119
+        width: 120
+
         height: 57
         color: "#808080"
         text: qsTr("2048")
@@ -282,7 +482,8 @@ Item {
         font.family: "Tahoma"
         wrapMode: Text.NoWrap
         fontSizeMode: Text.Fit
-        font.pixelSize: 29
+        font.pixelSize: 47
+
     }
 
     Rectangle {
