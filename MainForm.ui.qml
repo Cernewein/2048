@@ -24,7 +24,6 @@ Item {
     property alias rect0_2: rect0_2
     property alias rect1_3: rect1_3
     property alias rect0_3: rect0_3
-    property alias tuile1: tuile1
 
     Rectangle {
         id: fond
@@ -63,6 +62,17 @@ Item {
             anchors.left: parent.left
             anchors.leftMargin: 10
             smooth: true
+
+            Text {
+                id: text3_0
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                font.bold: true
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
@@ -78,6 +88,17 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 120
+
+            Text {
+                id: text2_0
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
@@ -93,6 +114,17 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 230
+
+            Text {
+                id: text1_0
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
@@ -108,6 +140,17 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 340
+
+            Text {
+                id: text0_0
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
@@ -123,6 +166,17 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 340
+
+            Text {
+                id: text0_1
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
@@ -138,6 +192,17 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 230
+
+            Text {
+                id: text1_1
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
@@ -153,6 +218,17 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 120
+
+            Text {
+                id: text2_1
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
@@ -168,6 +244,17 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 10
+
+            Text {
+                id: text3_1
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
@@ -183,6 +270,17 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 10
+
+            Text {
+                id: text3_2
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
@@ -198,6 +296,17 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 120
+
+            Text {
+                id: text2_2
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
@@ -213,6 +322,17 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 120
+
+            Text {
+                id: text2_3
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
@@ -228,6 +348,17 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 10
+
+            Text {
+                id: text3_3
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
@@ -243,6 +374,17 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 230
+
+            Text {
+                id: text1_2
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
@@ -258,6 +400,17 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 340
+
+            Text {
+                id: text0_2
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
@@ -273,6 +426,17 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 230
+
+            Text {
+                id: text1_3
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
 
         Rectangle {
@@ -288,17 +452,17 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.bottomMargin: 340
-        }
 
-        Rectangle {
-            id: tuile1
-            x: 10
-            y: 10
-            width: 100
-            height: 100
-            color: "#f4e07d"
-            radius: 17
-
+            Text {
+                id: text0_3
+                x: 39
+                y: 43
+                text: qsTr(" ")
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.bold: true
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 37
+            }
         }
     }
 

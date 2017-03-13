@@ -1,6 +1,5 @@
 #include <QApplication>
 #include <QQmlApplicationEngine>
-#include "tuile.h"
 
 int main(int argc, char *argv[])
 {
