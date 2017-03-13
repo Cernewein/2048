@@ -1,8 +1,10 @@
 #include <QApplication>
 #include <QQmlApplicationEngine>
+
 #include <QtQml>
 #include "gestiondujeu.h"
 #include "damierdyn.h"
+
 
 int main(int argc, char *argv[])
 {

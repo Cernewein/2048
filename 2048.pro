@@ -5,8 +5,10 @@ QT += qml quick widgets
 CONFIG += c++11
 
 SOURCES += main.cpp \
+
     gestiondujeu.cpp \
     damierdyn.cpp
+
 
 RESOURCES += qml.qrc
 
@@ -33,5 +35,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+
     gestiondujeu.h \
     damierdyn.h
+

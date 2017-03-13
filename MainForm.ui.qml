@@ -6,6 +6,15 @@ Item {
     id: page
     width: 480
     height: 640
+
+    property alias text2: text2
+    property alias newgame: newgame
+    property alias text3: text3
+    property alias score: score
+    property alias text4: text4
+    property alias best: best
+    property alias text1: text1
+
     property alias rect1_2: rect1_2
     property alias rect3_3: rect3_3
     property alias rect2_3: rect2_3
@@ -464,11 +473,21 @@ Item {
                 font.pixelSize: 37
             }
         }
+
+        Rectangle {
+            id: tuile1
+            x: 10
+            y: 10
+            width: 100
+            height: 100
+            color: "#f4e07d"
+            radius: 17
+
+        }
     }
 
     Text {
         id: text1
-
         x: 15
         y: 31
         width: 120
@@ -483,7 +502,6 @@ Item {
         wrapMode: Text.NoWrap
         fontSizeMode: Text.Fit
         font.pixelSize: 47
-
     }
 
     Rectangle {

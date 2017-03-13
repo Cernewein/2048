@@ -7,7 +7,6 @@ ApplicationWindow {
     width: 480
     height: 640
     title: qsTr("2048")
-
     MainForm {
             anchors.fill: parent
             id:page
@@ -23,5 +22,6 @@ ApplicationWindow {
                   break;
                }
             }
+
     }
 }
