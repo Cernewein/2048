@@ -6,7 +6,9 @@ Item {
     id: page
     width: 480
     height: 640
-
+    property alias newGame: newGame
+    property alias scoretxt: scoretxt
+    property alias besttxt: besttxt
     property alias text2: text2
     property alias newgame: newgame
     property alias text3: text3
@@ -14,7 +16,22 @@ Item {
     property alias text4: text4
     property alias best: best
     property alias text1: text1
-
+    property alias text1_3: text1_3
+    property alias text0_3: text0_3
+    property alias text0_2: text0_2
+    property alias text1_2: text1_2
+    property alias text3_3: text3_3
+    property alias text2_3: text2_3
+    property alias text2_2: text2_2
+    property alias text3_2: text3_2
+    property alias text3_1: text3_1
+    property alias text2_1: text2_1
+    property alias text1_1: text1_1
+    property alias text0_1: text0_1
+    property alias text0_0: text0_0
+    property alias text1_0: text1_0
+    property alias text2_0: text2_0
+    property alias text3_0: text3_0
     property alias rect1_2: rect1_2
     property alias rect3_3: rect3_3
     property alias rect2_3: rect2_3
@@ -54,10 +71,10 @@ Item {
         anchors.bottomMargin: 20
         anchors.horizontalCenter: parent.horizontalCenter
 
- /* Les 16 rectangles suivants correspondent aux petits rectangles gris du jeu,
-    ils sont nommés rectx_y ou x est la ligne (de 0 à 3) et y la colonne (de 0 à 3)
-    l'origine est prise au niveau du coin supérieur gauche
- */
+        /* Les 16 rectangles suivants correspondent aux petits rectangles gris du jeu,
+                    ils sont nommés rectx_y ou x est la ligne (de 0 à 3) et y la colonne (de 0 à 3)
+                                    l'origine est prise au niveau du coin supérieur gauche
+                                                     */
         Rectangle {
             id: rect3_0
             x: 10
@@ -473,21 +490,11 @@ Item {
                 font.pixelSize: 37
             }
         }
-
-        Rectangle {
-            id: tuile1
-            x: 10
-            y: 10
-            width: 100
-            height: 100
-            color: "#f4e07d"
-            radius: 17
-
-        }
     }
 
     Text {
         id: text1
+
         x: 15
         y: 31
         width: 120
@@ -526,6 +533,14 @@ Item {
             anchors.topMargin: 0
             font.pixelSize: 12
         }
+
+        Text {
+            id: besttxt
+            x: 33
+            y: 35
+            text: qsTr("")
+            font.pixelSize: 12
+        }
     }
 
     Rectangle {
@@ -551,6 +566,14 @@ Item {
             anchors.topMargin: 0
             font.pixelSize: 12
         }
+
+        Text {
+            id: scoretxt
+            x: 33
+            y: 35
+            text: qsTr("")
+            font.pixelSize: 12
+        }
     }
 
     Rectangle {
@@ -571,6 +594,14 @@ Item {
             verticalAlignment: Text.AlignVCenter
             anchors.fill: parent
             font.pixelSize: 12
+        }
+
+        MouseArea {
+            id: newGame
+            x: 0
+            y: 0
+            width: 89
+            height: 33
         }
     }
 }

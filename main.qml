@@ -7,21 +7,30 @@ ApplicationWindow {
     width: 480
     height: 640
     title: qsTr("2048")
+
     MainForm {
             anchors.fill: parent
             id:page
             focus:page.fonddejeu
-            Keys.onPressed: {
-              switch (event.key) {
-                case Qt.Key_Right:
-                  grille.init(5);
-                  console.log(grille);
-                  break;
-                case Qt.Key_Left:
-                  stateGroup.state='State0_0';
-                  break;
-               }
-            }
 
+            } Keys.onPressed: {
+        //gestion.geneAlea(); //fait crasher l'appli.. Il ne semble même pas accéder à la fonction
+        console.log('Je suis là');
+        var valeur = gestion.ret(2,2);
+        console.log(valeur);
+        stateGroup.state = 'State0_0_2';
+            newGame {onClicked: gestion.Init();}
     }
+    StateGroup {
+                  id: stateGroup
+                      states: [
+                          State {
+                              name: "State0_0_2"
+                              PropertyChanges {
+                                  target: page.rect0_0
+                                  color: "blue"
+                              }
+                          }
+                      ]
+                 }
 }

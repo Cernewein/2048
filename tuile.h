@@ -1,4 +1,3 @@
-
 #ifndef TUILE_H
 #define TUILE_H
 
@@ -25,4 +24,3 @@ private:
 };
 
 #endif // TUILE_H
-

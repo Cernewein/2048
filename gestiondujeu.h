@@ -1,26 +1,29 @@
 #ifndef GESTIONDUJEU_H
 #define GESTIONDUJEU_H
 #include <QObject>
+#include "damierdyn.h"
 
 class GestionDuJeu : public QObject
 {
     Q_OBJECT
 public:
     explicit GestionDuJeu(QObject *parent = 0);
-    Q_INVOKABLE void increment();
-    Q_INVOKABLE void decrement();
+    Q_INVOKABLE void Init();
+    void geneAlea();
+    float ret(int x, int y);
 
-    Q_PROPERTY(QString cptQML READ readCompteur NOTIFY cptChanged);
-
-    QString readCompteur();
+    Q_INVOKABLE void ToucheHaut();
+    Q_INVOKABLE void ToucheBas();
+    Q_INVOKABLE void ToucheDroite();
+    Q_INVOKABLE void ToucheGauche();
 
 signals:
-    void cptChanged();
+
 
 public slots:
 
 private:
-
+    DamierDyn grille;
 };
 
 #endif // GESTIONDUJEU_H
