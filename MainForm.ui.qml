@@ -6,6 +6,32 @@ Item {
     id: page
     width: 480
     height: 640
+    property alias newGame: newGame
+    property alias scoretxt: scoretxt
+    property alias besttxt: besttxt
+    property alias text2: text2
+    property alias newgame: newgame
+    property alias text3: text3
+    property alias score: score
+    property alias text4: text4
+    property alias best: best
+    property alias text1: text1
+    property alias text1_3: text1_3
+    property alias text0_3: text0_3
+    property alias text0_2: text0_2
+    property alias text1_2: text1_2
+    property alias text3_3: text3_3
+    property alias text2_3: text2_3
+    property alias text2_2: text2_2
+    property alias text3_2: text3_2
+    property alias text3_1: text3_1
+    property alias text2_1: text2_1
+    property alias text1_1: text1_1
+    property alias text0_1: text0_1
+    property alias text0_0: text0_0
+    property alias text1_0: text1_0
+    property alias text2_0: text2_0
+    property alias text3_0: text3_0
     property alias rect1_2: rect1_2
     property alias rect3_3: rect3_3
     property alias rect2_3: rect2_3
@@ -45,17 +71,17 @@ Item {
         anchors.bottomMargin: 20
         anchors.horizontalCenter: parent.horizontalCenter
 
- /* Les 16 rectangles suivants correspondent aux petits rectangles gris du jeu,
-    ils sont nommés rectx_y ou x est la ligne (de 0 à 3) et y la colonne (de 0 à 3)
-    l'origine est prise au niveau du coin supérieur gauche
- */
+        /* Les 16 rectangles suivants correspondent aux petits rectangles gris du jeu,
+                            ils sont nommés rectx_y ou x est la ligne (de 0 à 3) et y la colonne (de 0 à 3)
+                                                                l'origine est prise au niveau du coin supérieur gauche
+                                                                                                                     */
         Rectangle {
             id: rect3_0
             x: 10
             y: 320
             width: 100
             height: 100
-            color: "#c3bcbc"
+            color: vueObjetCpt.coulQML[12]
             radius: 15
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 10
@@ -67,7 +93,7 @@ Item {
                 id: text3_0
                 x: 39
                 y: 43
-                text: qsTr(" ")
+                text: vueObjetCpt.cptQML[12]
                 font.bold: true
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
@@ -81,7 +107,7 @@ Item {
             y: 210
             width: 100
             height: 100
-            color: "#c3bcbc"
+            color: vueObjetCpt.coulQML[8]
             radius: 15
             smooth: true
             anchors.leftMargin: 10
@@ -93,7 +119,7 @@ Item {
                 id: text2_0
                 x: 39
                 y: 43
-                text: qsTr(" ")
+                text: vueObjetCpt.cptQML[8]
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.bold: true
                 anchors.verticalCenter: parent.verticalCenter
@@ -107,7 +133,7 @@ Item {
             y: 98
             width: 100
             height: 100
-            color: "#c3bcbc"
+            color: vueObjetCpt.coulQML[4]
             radius: 15
             smooth: true
             anchors.leftMargin: 10
@@ -119,7 +145,7 @@ Item {
                 id: text1_0
                 x: 39
                 y: 43
-                text: qsTr(" ")
+                text: vueObjetCpt.cptQML[4]
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.bold: true
                 anchors.verticalCenter: parent.verticalCenter
@@ -133,7 +159,7 @@ Item {
             y: 120
             width: 100
             height: 100
-            color: "#c3bcbc"
+            color: vueObjetCpt.coulQML[0]
             radius: 15
             smooth: true
             anchors.leftMargin: 10
@@ -145,7 +171,7 @@ Item {
                 id: text0_0
                 x: 39
                 y: 43
-                text: qsTr(" ")
+                text: vueObjetCpt.cptQML[0]
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.bold: true
                 anchors.verticalCenter: parent.verticalCenter
@@ -159,7 +185,7 @@ Item {
             y: 122
             width: 100
             height: 100
-            color: "#c3bcbc"
+            color: vueObjetCpt.coulQML[1]
             radius: 15
             smooth: true
             anchors.leftMargin: 120
@@ -171,7 +197,7 @@ Item {
                 id: text0_1
                 x: 39
                 y: 43
-                text: qsTr(" ")
+                text: vueObjetCpt.cptQML[1]
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.bold: true
                 anchors.verticalCenter: parent.verticalCenter
@@ -185,7 +211,7 @@ Item {
             y: 120
             width: 100
             height: 100
-            color: "#c3bcbc"
+            color: vueObjetCpt.coulQML[5]
             radius: 15
             smooth: true
             anchors.leftMargin: 120
@@ -197,7 +223,7 @@ Item {
                 id: text1_1
                 x: 39
                 y: 43
-                text: qsTr(" ")
+                text: vueObjetCpt.cptQML[5]
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.bold: true
                 anchors.verticalCenter: parent.verticalCenter
@@ -211,7 +237,7 @@ Item {
             y: 230
             width: 100
             height: 100
-            color: "#c3bcbc"
+            color: vueObjetCpt.coulQML[9]
             radius: 15
             smooth: true
             anchors.leftMargin: 120
@@ -223,7 +249,7 @@ Item {
                 id: text2_1
                 x: 39
                 y: 43
-                text: qsTr(" ")
+                text: vueObjetCpt.cptQML[9]
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.bold: true
                 anchors.verticalCenter: parent.verticalCenter
@@ -237,7 +263,7 @@ Item {
             y: 340
             width: 100
             height: 100
-            color: "#c3bcbc"
+            color: vueObjetCpt.coulQML[13]
             radius: 15
             smooth: true
             anchors.leftMargin: 120
@@ -249,7 +275,7 @@ Item {
                 id: text3_1
                 x: 39
                 y: 43
-                text: qsTr(" ")
+                text: vueObjetCpt.cptQML[13]
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.bold: true
                 anchors.verticalCenter: parent.verticalCenter
@@ -263,7 +289,7 @@ Item {
             y: 340
             width: 100
             height: 100
-            color: "#c3bcbc"
+            color: vueObjetCpt.coulQML[14]
             radius: 15
             smooth: true
             anchors.leftMargin: 230
@@ -275,7 +301,7 @@ Item {
                 id: text3_2
                 x: 39
                 y: 43
-                text: qsTr(" ")
+                text: vueObjetCpt.cptQML[14]
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.bold: true
                 anchors.verticalCenter: parent.verticalCenter
@@ -289,7 +315,7 @@ Item {
             y: 230
             width: 100
             height: 100
-            color: "#c3bcbc"
+            color: vueObjetCpt.coulQML[10]
             radius: 15
             smooth: true
             anchors.leftMargin: 230
@@ -301,7 +327,7 @@ Item {
                 id: text2_2
                 x: 39
                 y: 43
-                text: qsTr(" ")
+                text: vueObjetCpt.cptQML[10]
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.bold: true
                 anchors.verticalCenter: parent.verticalCenter
@@ -315,7 +341,7 @@ Item {
             y: 230
             width: 100
             height: 100
-            color: "#c3bcbc"
+            color: vueObjetCpt.coulQML[11]
             radius: 15
             smooth: true
             anchors.leftMargin: 340
@@ -327,7 +353,7 @@ Item {
                 id: text2_3
                 x: 39
                 y: 43
-                text: qsTr(" ")
+                text: vueObjetCpt.cptQML[11]
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.bold: true
                 anchors.verticalCenter: parent.verticalCenter
@@ -341,7 +367,7 @@ Item {
             y: 340
             width: 100
             height: 100
-            color: "#c3bcbc"
+            color: vueObjetCpt.coulQML[15]
             radius: 15
             smooth: true
             anchors.leftMargin: 340
@@ -353,7 +379,7 @@ Item {
                 id: text3_3
                 x: 39
                 y: 43
-                text: qsTr(" ")
+                text: vueObjetCpt.cptQML[15]
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.bold: true
                 anchors.verticalCenter: parent.verticalCenter
@@ -367,7 +393,7 @@ Item {
             y: 120
             width: 100
             height: 100
-            color: "#c3bcbc"
+            color: vueObjetCpt.coulQML[6]
             radius: 15
             smooth: true
             anchors.leftMargin: 230
@@ -379,7 +405,7 @@ Item {
                 id: text1_2
                 x: 39
                 y: 43
-                text: qsTr(" ")
+                text: vueObjetCpt.cptQML[6]
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.bold: true
                 anchors.verticalCenter: parent.verticalCenter
@@ -393,7 +419,7 @@ Item {
             y: 10
             width: 100
             height: 100
-            color: "#c3bcbc"
+            color: vueObjetCpt.coulQML[2]
             radius: 15
             smooth: true
             anchors.leftMargin: 230
@@ -405,7 +431,7 @@ Item {
                 id: text0_2
                 x: 39
                 y: 43
-                text: qsTr(" ")
+                text: vueObjetCpt.cptQML[2]
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.bold: true
                 anchors.verticalCenter: parent.verticalCenter
@@ -419,7 +445,7 @@ Item {
             y: 120
             width: 100
             height: 100
-            color: "#c3bcbc"
+            color: vueObjetCpt.coulQML[7]
             radius: 15
             smooth: true
             anchors.leftMargin: 340
@@ -431,7 +457,7 @@ Item {
                 id: text1_3
                 x: 39
                 y: 43
-                text: qsTr(" ")
+                text: vueObjetCpt.cptQML[7]
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.bold: true
                 anchors.verticalCenter: parent.verticalCenter
@@ -445,7 +471,7 @@ Item {
             y: 10
             width: 100
             height: 100
-            color: "#c3bcbc"
+            color: vueObjetCpt.coulQML[3]
             radius: 15
             smooth: true
             anchors.leftMargin: 340
@@ -457,7 +483,7 @@ Item {
                 id: text0_3
                 x: 39
                 y: 43
-                text: qsTr(" ")
+                text: vueObjetCpt.cptQML[3]
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.bold: true
                 anchors.verticalCenter: parent.verticalCenter
@@ -483,7 +509,6 @@ Item {
         wrapMode: Text.NoWrap
         fontSizeMode: Text.Fit
         font.pixelSize: 47
-
     }
 
     Rectangle {
@@ -506,6 +531,14 @@ Item {
             anchors.leftMargin: 0
             anchors.top: parent.top
             anchors.topMargin: 0
+            font.pixelSize: 12
+        }
+
+        Text {
+            id: besttxt
+            x: 33
+            y: 35
+            text: qsTr("")
             font.pixelSize: 12
         }
     }
@@ -533,6 +566,14 @@ Item {
             anchors.topMargin: 0
             font.pixelSize: 12
         }
+
+        Text {
+            id: scoretxt
+            x: 33
+            y: 35
+            text: qsTr("")
+            font.pixelSize: 12
+        }
     }
 
     Rectangle {
@@ -553,6 +594,14 @@ Item {
             verticalAlignment: Text.AlignVCenter
             anchors.fill: parent
             font.pixelSize: 12
+        }
+
+        MouseArea {
+            id: newGame
+            x: 0
+            y: 0
+            width: 89
+            height: 33
         }
     }
 }

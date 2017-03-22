@@ -11,17 +11,34 @@ ApplicationWindow {
     MainForm {
             anchors.fill: parent
             id:page
-            focus:page.fonddejeu
+            focus:true
             Keys.onPressed: {
-              switch (event.key) {
-                case Qt.Key_Right:
-                  grille.init(5);
-                  console.log(grille);
-                  break;
-                case Qt.Key_Left:
-                  stateGroup.state='State0_0';
-                  break;
-               }
+                switch (event.key) {
+                  case Qt.Key_Up:
+                    vueObjetCpt.toucheHaut();
+                    break;
+                  case Qt.Key_Down:
+                    vueObjetCpt.toucheBas();
+                    break;
+                  case Qt.Key_Right:
+                    vueObjetCpt.toucheDroite();
+                    break;
+                  case Qt.Key_Left:
+                    vueObjetCpt.toucheGauche();
+                    break;
+                }
             }
     }
+    StateGroup {
+                  id: stateGroup
+                      states: [
+                          State {
+                              name: "State0_0_2"
+                              PropertyChanges {
+                                  target: page.rect0_0
+                                  color: "blue"
+                              }
+                          }
+                      ]
+                 }
 }
