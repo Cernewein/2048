@@ -1,4 +1,3 @@
-
 #include "tuile.h"
 
 Tuile::Tuile(QObject *parent) : QObject(parent)
@@ -17,4 +16,3 @@ void Tuile::gauche() {
     positiony=0;
     position();
 }
-
