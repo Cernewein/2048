@@ -21,18 +21,18 @@ DamierDyn::DamierDyn(const DamierDyn &d,QObject *parent){
 
 void DamierDyn::Bas(){
     for (int y=0; y<4; y++){            // On parcours une à une chaque colonne
-        int ValeurActive=NULL;          // Valeur active correspond à la dernière valeur rencontrée (autre que 0)
-        int depl=NULL;                  // depl correspond à la ligne sur laquelle il faudra déplacer la valeur rencontrée
+        int ValeurActive=-1;          // Valeur active correspond à la dernière valeur rencontrée (autre que 0)
+        int depl=-1;                  // depl correspond à la ligne sur laquelle il faudra déplacer la valeur rencontrée
         for (int x=3; x>-1; x--){       // On parcours chaque ligne de bas en haut
                 int valeur=T[x][y];
                 if (valeur==0){         // 1er cas : la valeur rencontrée est un 0
-                    if (depl==NULL){    // Si depl n'a pas encore été défini (c-a-c si le nombre le plus bas est un zéro, alors depl=x=3
+                    if (depl==-1){    // Si depl n'a pas encore été défini (c-a-c si le nombre le plus bas est un zéro, alors depl=x=3
                         depl=x;
                     }
                 }
                 else{                   // 2eme cas : il y a une donnée dans la case
-                    if (ValeurActive==NULL){
-                        if (depl==NULL){
+                    if (ValeurActive==-1){
+                        if (depl==-1){
                             depl=x;
                         }
                         if (x!=depl){
@@ -44,7 +44,7 @@ void DamierDyn::Bas(){
                     else if (ValeurActive==valeur){
                         T[x][y]=0;
                         T[depl][y]=valeur*2;
-                        ValeurActive=NULL;
+                        ValeurActive=-1;
                         depl+=-1;
                     }
                     else{
@@ -62,18 +62,18 @@ void DamierDyn::Bas(){
 
 void DamierDyn::Haut(){
     for (int y=0; y<4; y++){            // On parcours une à une chaque colonne
-        int ValeurActive=NULL;          // Valeur active correspond à la dernière valeur rencontrée (autre que 0)
-        int depl=NULL;                  // depl correspond à la ligne sur laquelle il faudra déplacer la valeur rencontrée
+        int ValeurActive=-1;          // Valeur active correspond à la dernière valeur rencontrée (autre que 0)
+        int depl=-1;                  // depl correspond à la ligne sur laquelle il faudra déplacer la valeur rencontrée
         for (int x=0; x<4; x++){       // On parcours chaque ligne de haut en bas
                 int valeur=T[x][y];
                 if (valeur==0){         // 1er cas : la valeur rencontrée est un 0
-                    if (depl==NULL){    // Si depl n'a pas encore été défini (c-a-c si le nombre le plus bas est un zéro, alors depl=x=0
+                    if (depl==-1){    // Si depl n'a pas encore été défini (c-a-c si le nombre le plus bas est un zéro, alors depl=x=0
                         depl=x;
                     }
                 }
                 else{                   // 2eme cas : il y a une donnée dans la case
-                    if (ValeurActive==NULL){
-                        if (depl==NULL){
+                    if (ValeurActive==-1){
+                        if (depl==-1){
                             depl=x;
                         }
                         if (x!=depl){
@@ -85,7 +85,7 @@ void DamierDyn::Haut(){
                     else if (ValeurActive==valeur){
                         T[x][y]=0;
                         T[depl][y]=valeur*2;
-                        ValeurActive=NULL;
+                        ValeurActive=-1;
                         depl+=1;
                     }
                     else{
@@ -103,18 +103,18 @@ void DamierDyn::Haut(){
 
 void DamierDyn::Droite(){
     for (int x=0; x<4; x++){            // On parcours une à une chaque ligne
-        int ValeurActive=NULL;          // Valeur active correspond à la dernière valeur rencontrée (autre que 0)
-        int depl=NULL;                  // depl correspond à la ligne sur laquelle il faudra déplacer la valeur rencontrée
+        int ValeurActive=-1;          // Valeur active correspond à la dernière valeur rencontrée (autre que 0)
+        int depl=-1;                  // depl correspond à la ligne sur laquelle il faudra déplacer la valeur rencontrée
         for (int y=3; y>-1; y--){        // On parcours chaque colenne de haut en bas
                 int valeur=T[x][y];
                 if (valeur==0){         // 1er cas : la valeur rencontrée est un 0
-                    if (depl==NULL){    // Si depl n'a pas encore été défini (c-a-c si le nombre le plus bas est un zéro, alors depl=x=3
+                    if (depl==-1){    // Si depl n'a pas encore été défini (c-a-c si le nombre le plus bas est un zéro, alors depl=x=3
                         depl=y;
                     }
                 }
                 else{                   // 2eme cas : il y a une donnée dans la case
-                    if (ValeurActive==NULL){
-                        if (depl==NULL){
+                    if (ValeurActive==-1){
+                        if (depl==-1){
                             depl=y;
                         }
                         if (y!=depl){
@@ -126,7 +126,7 @@ void DamierDyn::Droite(){
                     else if (ValeurActive==valeur){
                         T[x][y]=0;
                         T[x][depl]=valeur*2;
-                        ValeurActive=NULL;
+                        ValeurActive=-1;
                         depl+=-1;
                     }
                     else{
@@ -144,18 +144,18 @@ void DamierDyn::Droite(){
 
 void DamierDyn::Gauche(){
     for (int x=0; x<4; x++){            // On parcours une à une chaque ligne
-        int ValeurActive=NULL;          // Valeur active correspond à la dernière valeur rencontrée (autre que 0)
-        int depl=NULL;                  // depl correspond à la ligne sur laquelle il faudra déplacer la valeur rencontrée
-        for (int y=0; y<4; y++){        // On parcours chaque colenne de haut en bas
+        int ValeurActive=-1;          // Valeur active correspond à la dernière valeur rencontrée (autre que 0)
+        int depl=-1;                  // depl correspond à la ligne sur laquelle il faudra déplacer la valeur rencontrée
+        for (int y=0; y<4; y++){        // On parcours les colonnes de gauche à droite
                 int valeur=T[x][y];
                 if (valeur==0){         // 1er cas : la valeur rencontrée est un 0
-                    if (depl==NULL){    // Si depl n'a pas encore été défini (c-a-c si le nombre le plus bas est un zéro, alors depl=x=3
+                    if (depl==-1){    // Si depl n'a pas encore été défini (c-a-c si le nombre le plus bas est un zéro, alors depl=x=3
                         depl=y;
                     }
                 }
                 else{                   // 2eme cas : il y a une donnée dans la case
-                    if (ValeurActive==NULL){
-                        if (depl==NULL){
+                    if (ValeurActive==-1){
+                        if (depl==-1){
                             depl=y;
                         }
                         if (y!=depl){
@@ -167,7 +167,7 @@ void DamierDyn::Gauche(){
                     else if (ValeurActive==valeur){
                         T[x][y]=0;
                         T[x][depl]=valeur*2;
-                        ValeurActive=NULL;
+                        ValeurActive=-1;
                         depl+=1;
                     }
                     else{
@@ -185,7 +185,7 @@ void DamierDyn::Gauche(){
 
 bool DamierDyn::BasPossible(){
     for (int y=0; y<4; y++){
-        int ValeurActive=NULL;
+        int ValeurActive=-1;
         for (int x=0; x<4; x++){
             int valeur=T[x][y];
             if (valeur==ValeurActive){
@@ -195,7 +195,7 @@ bool DamierDyn::BasPossible(){
                 ValeurActive=valeur;
             }
             else{
-                if(ValeurActive!=NULL){
+                if(ValeurActive!=-1){
                     return true;
                 }
             }
@@ -207,7 +207,7 @@ bool DamierDyn::BasPossible(){
 
 bool DamierDyn::HautPossible(){
     for (int y=0; y<4; y++){
-        int ValeurActive=NULL;
+        int ValeurActive=-1;
         for (int x=3; x>-1; x--){
             int valeur=T[x][y];
             if (valeur==ValeurActive){
@@ -217,7 +217,7 @@ bool DamierDyn::HautPossible(){
                 ValeurActive=valeur;
             }
             else{
-                if(ValeurActive!=NULL){
+                if(ValeurActive!=-1){
                     return true;
                 }
             }
@@ -229,7 +229,7 @@ bool DamierDyn::HautPossible(){
 
 bool DamierDyn::DroitePossible(){
     for (int x=0; x<4; x++){
-        int ValeurActive=NULL;
+        int ValeurActive=-1;
         for (int y=0; y<4; y++){
             int valeur=T[x][y];
             if (valeur==ValeurActive){
@@ -239,7 +239,7 @@ bool DamierDyn::DroitePossible(){
                 ValeurActive=valeur;
             }
             else{
-                if(ValeurActive!=NULL){
+                if(ValeurActive!=-1){
                     return true;
                 }
             }
@@ -251,7 +251,7 @@ bool DamierDyn::DroitePossible(){
 
 bool DamierDyn::GauchePossible(){
     for (int x=0; x<4; x++){
-        int ValeurActive=NULL;
+        int ValeurActive=-1;
         for (int y=3; y>-1; y--){
             int valeur=T[x][y];
             if (valeur==ValeurActive){
@@ -261,7 +261,7 @@ bool DamierDyn::GauchePossible(){
                 ValeurActive=valeur;
             }
             else{
-                if(ValeurActive!=NULL){
+                if(ValeurActive!=-1){
                     return true;
                 }
             }

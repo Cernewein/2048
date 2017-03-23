@@ -1,6 +1,7 @@
 import QtQuick 2.5
 import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.2
+import QtQuick.Dialogs 1.2
 
 Item {
     id: page
@@ -9,8 +10,6 @@ Item {
     property alias newGame: newGame
     property alias scoretxt: scoretxt
     property alias besttxt: besttxt
-    property alias text2: text2
-    property alias newgame: newgame
     property alias text3: text3
     property alias score: score
     property alias text4: text4
@@ -51,6 +50,13 @@ Item {
     property alias rect1_3: rect1_3
     property alias rect0_3: rect0_3
 
+//    MessageDialog {
+//        id: messageDialog
+//        title: "Perdu"
+//        text: "Désolé vous venez de perdre.."
+//        visible: vueObjetCpt.perduQML;
+//    }
+
     Rectangle {
         id: fond
         color: "#efefd9"
@@ -72,9 +78,9 @@ Item {
         anchors.horizontalCenter: parent.horizontalCenter
 
         /* Les 16 rectangles suivants correspondent aux petits rectangles gris du jeu,
-                            ils sont nommés rectx_y ou x est la ligne (de 0 à 3) et y la colonne (de 0 à 3)
-                                                                l'origine est prise au niveau du coin supérieur gauche
-                                                                                                                     */
+                                            ils sont nommés rectx_y ou x est la ligne (de 0 à 3) et y la colonne (de 0 à 3)
+                                                                                                                                                l'origine est prise au niveau du coin supérieur gauche
+                                                                                                                                                                                                                                                                                                                                                                         */
         Rectangle {
             id: rect3_0
             x: 10
@@ -531,15 +537,15 @@ Item {
             anchors.leftMargin: 0
             anchors.top: parent.top
             anchors.topMargin: 0
-            font.pixelSize: 12
+            font.pixelSize: 16
         }
 
         Text {
             id: besttxt
             x: 33
             y: 35
-            text: qsTr("")
-            font.pixelSize: 12
+            text: vueObjetCpt.bestQML[1]
+            font.pixelSize: 15
         }
     }
 
@@ -564,44 +570,25 @@ Item {
             anchors.leftMargin: 0
             anchors.top: parent.top
             anchors.topMargin: 0
-            font.pixelSize: 12
+            font.pixelSize: 17
         }
 
         Text {
             id: scoretxt
-            x: 33
-            y: 35
-            text: qsTr("")
-            font.pixelSize: 12
+            x: 28
+            y: 33
+            text: vueObjetCpt.bestQML[0]
+            font.pixelSize: 16
         }
     }
 
-    Rectangle {
-        id: newgame
-        x: 383
-        y: 106
-        width: 89
-        height: 33
-        color: "#505050"
-
-        Text {
-            id: text2
-            color: "#ffffff"
-            text: qsTr("New Game")
-            font.family: "Tahoma"
-            fontSizeMode: Text.VerticalFit
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-            anchors.fill: parent
-            font.pixelSize: 12
-        }
-
-        MouseArea {
-            id: newGame
-            x: 0
-            y: 0
-            width: 89
-            height: 33
-        }
+    Button {
+        id: newGame
+        x: 390
+        y: 116
+        text: qsTr("New Game")
+        activeFocusOnPress: false
+        enabled: true
+        checkable: false
     }
 }
