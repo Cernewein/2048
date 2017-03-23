@@ -2,12 +2,14 @@
 #include "damierdyn.h"
 #include <cstdlib>
 #include <stdlib.h>
+#include <QMessageBox>
 using namespace std;
 
 GestionDuJeu::GestionDuJeu(DamierDyn *parent): QObject(parent),grille(4,4,0,parent)
 {
     //DamierDyn grille(4,4);
     geneAlea();
+    best = QString::number(0);
     cptChanged();
 }
 
@@ -27,6 +29,25 @@ QList<QString> GestionDuJeu::readCompteur()
     return l;
 }
 
+QList<QString> GestionDuJeu::readBest()
+{   QList<QString> l;
+    QString score = QString::number(0);
+    for(int i=0; i<4;i++){
+        for(int j=0;j<4;j++){
+            float number = ret(i,j);
+            if(number > score.toFloat()){
+                score = QString::number(number);
+            }
+        }
+    }
+    if(score.toFloat()>best.toFloat()){
+        best = score;
+    }
+    l.append(score);
+    l.append(best);
+    return l;
+}
+
 QList<QString> GestionDuJeu::readCouleur()
 {   QList<QString> l;
     for(int i=0; i<4;i++){
@@ -36,22 +57,47 @@ QList<QString> GestionDuJeu::readCouleur()
                 l.append(QString::fromStdString("#c3bcbc"));
             }
             else if(number == 2){
-                l.append(QString::fromStdString("yellow"));
+                l.append(QString::fromStdString("#ffffff"));
             }
             else if(number == 4){
-                l.append(QString::fromStdString("orange"));
+                l.append(QString::fromStdString("#fffee4"));
             }
             else if(number == 8){
-                l.append(QString::fromStdString("red"));
+                l.append(QString::fromStdString("#ffd58b"));
+            }
+            else if(number == 16){
+                l.append(QString::fromStdString("#ffc781"));
+            }
+            else if(number == 32){
+                l.append(QString::fromStdString("#ffba6b"));
+            }
+            else if(number == 64){
+                l.append(QString::fromStdString("#ffa95d"));
+            }
+            else if(number == 128){
+                l.append(QString::fromStdString("#f9ff79"));
+            }
+            else if(number == 256){
+                l.append(QString::fromStdString("#ffee2e"));
+            }
+            else if(number == 512){
+                l.append(QString::fromStdString("#ff8e1d"));
+            }
+            else if(number == 1024){
+                l.append(QString::fromStdString("#ff7563"));
+            }
+            else if(number == 2048){
+                l.append(QString::fromStdString("#ff2020"));
             }
             else{
-                l.append(QString::fromStdString("#c3bcbc"));
+                l.append(QString::fromStdString("#de1b1b"));
             }
 
         }
     }
     return l;
 }
+
 
 void GestionDuJeu::toucheHaut(){
     if (grille.HautPossible()){
@@ -86,7 +132,7 @@ void GestionDuJeu::toucheGauche(){
 }
 
 void GestionDuJeu::geneAlea(){
-    cout<<"I'm here";
+    //cout<<"I'm here";
     DamierDyn libres(0,0);
     int nb_libres = 0;
     for(int i=0;i<4;i++){ //On cherche dans la grille de jeu, une fois un mouvement effectué sur quelles cases on peut générer des nouveau nombres
@@ -99,9 +145,7 @@ void GestionDuJeu::geneAlea(){
             }
         }
     }
-    libres.Print();
-    int alea = rand() % (nb_libres-1);
-    //cout<<alea<<endl;
+    int alea = rand() % (nb_libres) + 1;
     int x = libres.ret(alea-1,0);
     int y = libres.ret(alea-1,1);
     grille.Set(x,y,2);
@@ -112,8 +156,8 @@ float GestionDuJeu::ret(int x,int y){
     return grille.ret(x,y);
 }
 
-void GestionDuJeu::Init(){
+void GestionDuJeu::init(){
     grille.Init(0);
+    geneAlea();
     cptChanged();
-    cout<<"Jeu bien initialisé";
 }

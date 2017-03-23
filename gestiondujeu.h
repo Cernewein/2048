@@ -8,7 +8,7 @@ class GestionDuJeu : public QObject
     Q_OBJECT
 public:
     explicit GestionDuJeu(DamierDyn *parent = 0);
-    Q_INVOKABLE void Init();
+    Q_INVOKABLE void init();
     void geneAlea();
     float ret(int x, int y);
 
@@ -23,13 +23,22 @@ public:
     Q_PROPERTY(QList<QString> coulQML READ readCouleur NOTIFY cptChanged);
     QList<QString> readCouleur();
 
+    Q_PROPERTY(QList<QString> bestQML READ readBest NOTIFY cptChanged);
+    QList<QString> readBest();
+
+//    Q_PROPERTY(QString perduQML READ readPerdu NOTIFY perduChanged);
+//    QString readPerdu();
+
 signals:
     void cptChanged();
+    //void perduChanged();
 
 public slots:
 
 private:
     DamierDyn grille;
+    QString best;
+//    QString perdu;
 };
 
 #endif // GESTIONDUJEU_H

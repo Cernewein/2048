@@ -28,17 +28,6 @@ ApplicationWindow {
                     break;
                 }
             }
+            newGame.onClicked: vueObjetCpt.init();
     }
-    StateGroup {
-                  id: stateGroup
-                      states: [
-                          State {
-                              name: "State0_0_2"
-                              PropertyChanges {
-                                  target: page.rect0_0
-                                  color: "blue"
-                              }
-                          }
-                      ]
-                 }
 }
