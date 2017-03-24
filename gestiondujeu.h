@@ -26,19 +26,18 @@ public:
     Q_PROPERTY(QList<QString> bestQML READ readBest NOTIFY cptChanged);
     QList<QString> readBest();
 
-//    Q_PROPERTY(QString perduQML READ readPerdu NOTIFY perduChanged);
-//    QString readPerdu();
+    Q_PROPERTY(QString perduQML READ readPerdu NOTIFY cptChanged);
+    QString readPerdu();
 
 signals:
     void cptChanged();
-    //void perduChanged();
 
 public slots:
 
 private:
     DamierDyn grille;
     QString best;
-//    QString perdu;
+    QString perdu;
 };
 
 #endif // GESTIONDUJEU_H

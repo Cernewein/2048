@@ -7,6 +7,7 @@ Item {
     id: page
     width: 480
     height: 640
+    property alias infoPerdu: infoPerdu
     property alias newGame: newGame
     property alias scoretxt: scoretxt
     property alias besttxt: besttxt
@@ -50,13 +51,6 @@ Item {
     property alias rect1_3: rect1_3
     property alias rect0_3: rect0_3
 
-//    MessageDialog {
-//        id: messageDialog
-//        title: "Perdu"
-//        text: "Désolé vous venez de perdre.."
-//        visible: vueObjetCpt.perduQML;
-//    }
-
     Rectangle {
         id: fond
         color: "#efefd9"
@@ -78,9 +72,9 @@ Item {
         anchors.horizontalCenter: parent.horizontalCenter
 
         /* Les 16 rectangles suivants correspondent aux petits rectangles gris du jeu,
-                                            ils sont nommés rectx_y ou x est la ligne (de 0 à 3) et y la colonne (de 0 à 3)
-                                                                                                                                                l'origine est prise au niveau du coin supérieur gauche
-                                                                                                                                                                                                                                                                                                                                                                         */
+                                                    ils sont nommés rectx_y ou x est la ligne (de 0 à 3) et y la colonne (de 0 à 3)
+                                                                                                                                                                                                    l'origine est prise au niveau du coin supérieur gauche
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */
         Rectangle {
             id: rect3_0
             x: 10
@@ -590,5 +584,15 @@ Item {
         activeFocusOnPress: false
         enabled: true
         checkable: false
+    }
+
+    Text {
+        id: infoPerdu
+        x: 87
+        y: 121
+        color: "#ff0000"
+        text: vueObjetCpt.perduQML
+        font.family: "Tahoma"
+        font.pixelSize: 13
     }
 }

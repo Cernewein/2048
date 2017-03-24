@@ -10,6 +10,7 @@ GestionDuJeu::GestionDuJeu(DamierDyn *parent): QObject(parent),grille(4,4,0,pare
     //DamierDyn grille(4,4);
     geneAlea();
     best = QString::number(0);
+    perdu = QString::fromStdString("");
     cptChanged();
 }
 
@@ -98,6 +99,13 @@ QList<QString> GestionDuJeu::readCouleur()
     return l;
 }
 
+QString GestionDuJeu::readPerdu()
+{
+    if(!grille.BasPossible() && !grille.HautPossible() && !grille.DroitePossible() && !grille.GauchePossible()){
+        perdu = QString::fromStdString("Désolé vous venez de perdre..");
+    }
+    return perdu;
+}
 
 void GestionDuJeu::toucheHaut(){
     if (grille.HautPossible()){
@@ -145,7 +153,8 @@ void GestionDuJeu::geneAlea(){
             }
         }
     }
-    int alea = rand() % (nb_libres) + 1;
+
+    int alea = rand() % (nb_libres) + 1; // Pour avoir des nombres aléatoires entre 1 et nb_libres
     int x = libres.ret(alea-1,0);
     int y = libres.ret(alea-1,1);
     grille.Set(x,y,2);
@@ -159,5 +168,6 @@ float GestionDuJeu::ret(int x,int y){
 void GestionDuJeu::init(){
     grille.Init(0);
     geneAlea();
+    perdu = QString::fromStdString("");
     cptChanged();
 }
