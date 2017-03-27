@@ -26,6 +26,7 @@ public:
     bool GauchePossible();
     bool HautPossible();
     bool BasPossible();
+    int getScore();
 
 signals:
 
@@ -33,6 +34,7 @@ signals:
 public slots:
 
 private:
+    int score;
     int L;
     int C;
     int** T;

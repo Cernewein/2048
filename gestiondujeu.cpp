@@ -3,14 +3,17 @@
 #include <cstdlib>
 #include <stdlib.h>
 #include <QMessageBox>
+#include <time.h>
 using namespace std;
 
 GestionDuJeu::GestionDuJeu(DamierDyn *parent): QObject(parent),grille(4,4,0,parent)
 {
+    srand (time(NULL));
     //DamierDyn grille(4,4);
     geneAlea();
     best = QString::number(0);
     perdu = QString::fromStdString("");
+
     cptChanged();
 }
 
@@ -32,15 +35,8 @@ QList<QString> GestionDuJeu::readCompteur()
 
 QList<QString> GestionDuJeu::readBest()
 {   QList<QString> l;
-    QString score = QString::number(0);
-    for(int i=0; i<4;i++){
-        for(int j=0;j<4;j++){
-            float number = ret(i,j);
-            if(number > score.toFloat()){
-                score = QString::number(number);
-            }
-        }
-    }
+    QString score = QString::number(grille.getScore());
+
     if(score.toFloat()>best.toFloat()){
         best = score;
     }
@@ -154,7 +150,7 @@ void GestionDuJeu::geneAlea(){
         }
     }
 
-    int alea = rand() % (nb_libres) + 1;     // Pour avoir des nombres aléatoires entre 0 et nb_libres
+    int alea = rand() % (nb_libres) + 1;     // Pour avoir des nombres aléatoires entre 1 et nb_libres
     int x = libres.ret(alea-1,0);
     int y = libres.ret(alea-1,1);
     int nombre_alea= rand()%(10);            // Pour avoir des nombres aléatoires entre 0 et 9

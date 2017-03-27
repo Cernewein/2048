@@ -36,6 +36,7 @@ public slots:
 
 private:
     DamierDyn grille;
+    QString score;
     QString best;
     QString perdu;
 };

@@ -6,6 +6,7 @@ DamierDyn::DamierDyn(int lignes, int colonnes, int v,QObject *parent){
     T = NULL;
     Redim(lignes,colonnes);
     Init(v);
+    score=0;
 }
 
 DamierDyn::DamierDyn(const DamierDyn &d,QObject *parent){
@@ -19,20 +20,24 @@ DamierDyn::DamierDyn(const DamierDyn &d,QObject *parent){
 
 }
 
+int DamierDyn::getScore(){
+    return (score);
+}
+
 void DamierDyn::Bas(){
-    for (int y=0; y<4; y++){            // On parcours une à une chaque colonne
-        int ValeurActive=-1;          // Valeur active correspond à la dernière valeur rencontrée (autre que 0)
-        int depl=-1;                  // depl correspond à la ligne sur laquelle il faudra déplacer la valeur rencontrée
-        for (int x=3; x>-1; x--){       // On parcours chaque ligne de bas en haut
+    for (int y=0; y<4; y++){                // On parcours une à une chaque colonne
+        int ValeurActive=-1;                // Valeur active correspond à la dernière valeur rencontrée (autre que 0)
+        int depl=-1;                        // depl correspond à la ligne sur laquelle il faudra déplacer la valeur rencontrée
+        for (int x=3; x>-1; x--){           // On parcours chaque ligne de bas en haut
                 int valeur=T[x][y];
-                if (valeur==0){         // 1er cas : la valeur rencontrée est un 0
-                    if (depl==-1){    // Si depl n'a pas encore été défini (c-a-c si le nombre le plus bas est un zéro, alors depl=x=3
+                if (valeur==0){             // 1er cas : la valeur rencontrée est un 0
+                    if (depl==-1){          // Si depl n'a pas encore été défini (c-a-d si le nombre le plus bas est un zéro, alors depl=x=3
                         depl=x;
                     }
                 }
-                else{                   // 2eme cas : il y a une donnée dans la case
-                    if (ValeurActive==-1){
-                        if (depl==-1){
+                else{                       // 2eme cas : il y a une donnée dans la case
+                    if (ValeurActive==-1){  // Une valeur de -1 signifie que la variable ValeurActive n'a pas été initialisée
+                        if (depl==-1){      // Une valeur de -1 signifie que la variable depl n'a pas été initialisée
                             depl=x;
                         }
                         if (x!=depl){
@@ -41,14 +46,16 @@ void DamierDyn::Bas(){
                         T[depl][y]=valeur;
                         ValeurActive=valeur;
                     }
-                    else if (ValeurActive==valeur){
+                    else if (ValeurActive==valeur){ // Cas ou on fusionne 2 tuiles de valeures identiques
                         T[x][y]=0;
                         T[depl][y]=valeur*2;
-                        ValeurActive=-1;
+                        score+=(valeur*2);
+                        ValeurActive=-1;            // On réinitialise valeur active pour que la nouvelle tuile ne soit pas directement fusionnée
+                        // Ex : 4,2,2,0 doit donner, en poussant à droite : 0,0,4,4 et non 0,0,0,8.
                         depl+=-1;
                     }
                     else{
-                        ValeurActive=valeur;
+                        ValeurActive=valeur;        // Cas ou on empile 2 cases de valeurs différentes
                         if (x!=depl-1){
                             T[x][y]=0;
                         }
@@ -85,6 +92,7 @@ void DamierDyn::Haut(){
                     else if (ValeurActive==valeur){
                         T[x][y]=0;
                         T[depl][y]=valeur*2;
+                        score+=(valeur*2);
                         ValeurActive=-1;
                         depl+=1;
                     }
@@ -126,6 +134,7 @@ void DamierDyn::Droite(){
                     else if (ValeurActive==valeur){
                         T[x][y]=0;
                         T[x][depl]=valeur*2;
+                        score+=(valeur*2);
                         ValeurActive=-1;
                         depl+=-1;
                     }
@@ -167,6 +176,7 @@ void DamierDyn::Gauche(){
                     else if (ValeurActive==valeur){
                         T[x][y]=0;
                         T[x][depl]=valeur*2;
+                        score+=(valeur*2);
                         ValeurActive=-1;
                         depl+=1;
                     }
@@ -316,6 +326,7 @@ void DamierDyn::Redim_copie(int x, int y){
 }
 
 void DamierDyn::Init(int x1){
+    score=0;
     for(int i=0; i<L; i++){
         for(int j=0; j<C; j++){
             T[i][j] = x1;
