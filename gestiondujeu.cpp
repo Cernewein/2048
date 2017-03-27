@@ -102,7 +102,7 @@ QList<QString> GestionDuJeu::readCouleur()
 QString GestionDuJeu::readPerdu()
 {
     if(!grille.BasPossible() && !grille.HautPossible() && !grille.DroitePossible() && !grille.GauchePossible()){
-        perdu = QString::fromStdString("Désolé vous venez de perdre..");
+        perdu = QString::fromStdString("Désolé vous avez perdu...");
     }
     return perdu;
 }
@@ -154,10 +154,14 @@ void GestionDuJeu::geneAlea(){
         }
     }
 
-    int alea = rand() % (nb_libres) + 1; // Pour avoir des nombres aléatoires entre 1 et nb_libres
+    int alea = rand() % (nb_libres) + 1;     // Pour avoir des nombres aléatoires entre 0 et nb_libres
     int x = libres.ret(alea-1,0);
     int y = libres.ret(alea-1,1);
-    grille.Set(x,y,2);
+    int nombre_alea= rand()%(10);            // Pour avoir des nombres aléatoires entre 0 et 9
+    if (nombre_alea==0){                     // 1 chance sur 10 de générer un 4
+        grille.Set(x,y,4);}
+    else{                                    // 9 chances sur 10 de générer un 2
+        grille.Set(x,y,2);}
     cptChanged();
 }
 
